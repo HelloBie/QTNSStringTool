@@ -17,6 +17,17 @@ NS_ASSUME_NONNULL_BEGIN
 /// 判断是否包含中文
 - (BOOL)containChinese;
 
+/// 简单判断是否是手机号
+- (BOOL)isPhoneNumber;
+
+/// 判断是否是身份证号
+- (BOOL)isIDCardNumber;
+
+/// 判断是否是电子邮箱
+- (BOOL)isEmailAddress;
+
+/// 判断字符串是否为空,长度为0或者对象类型不为NSString及其子类时返回YES
++ (BOOL)isNull:(NSString *)string;
 
 #pragma mark - UI
 
