@@ -19,7 +19,7 @@
 #pragma mark - 验证
 
 /// 判断是否包含中文
-- (BOOL)containChinese {
+- (BOOL)qt_containChinese {
     for(int i=0; i< [self length];i++){
         int a = [self characterAtIndex:i];
         if( a > 0x4e00 && a < 0x9fff){
@@ -30,7 +30,7 @@
 }
 
 /// 简单判断是否是手机号
-- (BOOL)isPhoneNumber
+- (BOOL)qt_isPhoneNumber
 {
     NSString *regex = @"^1\\d{10}$";
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
@@ -38,7 +38,7 @@
 }
 
 /// 判断是否是身份证号
-- (BOOL)isIDCardNumber {
+- (BOOL)qt_isIDCardNumber {
     NSString *value = [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
     if (!self) {
@@ -115,7 +115,7 @@
 }
 
 /// 判断是否是电子邮箱
-- (BOOL)isEmailAddress {
+- (BOOL)qt_isEmailAddress {
     if (self.length <= 0) {
         return YES;
     }
@@ -125,7 +125,7 @@
 }
 
 /// 判断字符串是否为空,长度为0或者对象类型不为字符串时返回yes
-+ (BOOL)isNull:(NSString *)string {
++ (BOOL)qt_stringIsNull:(NSString *)string {
     
     if (![string isKindOfClass:[NSString class]]) {
         return YES;
@@ -145,7 +145,7 @@
 ///   - width:  文本最大宽度
 ///   - lineSpacing: 行间距(没有行间距就传0)
 ///   - font: 文本字体大小
-- (CGFloat)getTextHeightWithWidth:(CGFloat)width
+- (CGFloat)qt_getTextHeightWithWidth:(CGFloat)width
                   withLineSpacing:(CGFloat)lineSpacing
                          withFont:(CGFloat)font {
     if (self.length == 0) {
@@ -161,7 +161,7 @@
                                                 context:nil];
     
     if ((rect.size.height - [UIFont systemFontOfSize:font].lineHeight)  <= lineSpacing){
-        if ([self containChinese]){
+        if ([self qt_containChinese]){
             rect.size.height -= lineSpacing;
         }
     }
@@ -172,7 +172,7 @@
 #pragma mark - 数据处理
 
 /// 数字金额转化为大写汉字
-- (NSString *)convertAmount {
+- (NSString *)qt_convertAmount {
     if ([self doubleValue] == [@"0.00" doubleValue])
     {
         return @"零元整";
@@ -180,7 +180,7 @@
 
     //首先转化成标准格式        “200.23”
     NSString *doubleStr = nil;
-    doubleStr = [self notRoundingAfterPoint:2];
+    doubleStr = [self qt_notRoundingAfterPoint:2];
     if (![doubleStr containsString:@"."]) {
         doubleStr = [NSString stringWithFormat:@"%@.00", doubleStr];
     }
@@ -303,7 +303,7 @@
 
 /// 数字类型字符串转化为保留若干位小数
 /// - Parameter position: 需要保留的小数位
-- (NSString *)notRoundingAfterPoint:(NSInteger)position {
+- (NSString *)qt_notRoundingAfterPoint:(NSInteger)position {
     NSDecimalNumber * price = [NSDecimalNumber decimalNumberWithString:self];
     NSDecimalNumberHandler* roundingBehavior = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:NSRoundBankers scale:position raiseOnExactness:NO raiseOnOverflow:NO raiseOnUnderflow:NO raiseOnDivideByZero:NO];
     NSDecimalNumber *roundedOunces;
@@ -314,7 +314,7 @@
 
 
 /// json字符串转化字典或数组
-- (id)stringToJSONObject {
+- (id)qt_stringToJSONObject {
     if (self == nil) {
         return nil;
     }
@@ -330,7 +330,7 @@
 
 /// 字典或数组转化成json字符串
 /// - Parameter jsonObject: 需要转化的字典或者数组
-+ (NSString *)jsonObjectToString:(id)jsonObject {
++ (NSString *)qt_jsonObjectToString:(id)jsonObject {
     
     NSError *parseError;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:jsonObject
@@ -345,7 +345,7 @@
 }
 
 /// 生成 32位小写 MD5字符串
-- (NSString *)MD5ForLower32Bate {
+- (NSString *)qt_MD5ForLower32Bate {
     
     //要进行UTF8的转码
     const char* input = [self UTF8String];
@@ -362,7 +362,7 @@
 
 
 /// 生成 32位大写 MD5字符串
-- (NSString *)MD5ForUpper32Bate {
+- (NSString *)qt_MD5ForUpper32Bate {
     
     //要进行UTF8的转码
     const char* input = [self UTF8String];
@@ -378,9 +378,9 @@
 }
 
 /// 生成 16位 大写 MD5字符串
-- (NSString *)MD5ForUpper16Bate {
+- (NSString *)qt_MD5ForUpper16Bate {
     
-    NSString *md5Str = [self MD5ForUpper32Bate];
+    NSString *md5Str = [self qt_MD5ForUpper32Bate];
     
     NSString  *string;
     for (int i=0; i<24; i++) {
@@ -391,9 +391,9 @@
 
 
 /// 生成 16位 小写 MD5字符串
-- (NSString *)MD5ForLower16Bate {
+- (NSString *)qt_MD5ForLower16Bate {
     
-    NSString *md5Str = [self MD5ForLower32Bate];
+    NSString *md5Str = [self qt_MD5ForLower32Bate];
     
     NSString  *string;
     for (int i=0; i<24; i++) {
@@ -405,13 +405,13 @@
 #pragma mark - 快速数据获取
 
 /// 获取系统版本号
-+ (NSString*)SystemVersion {
++ (NSString*)qt_systemVersion {
     NSString * str = [NSString stringWithFormat:@"%.2f",[[[UIDevice currentDevice] systemVersion] floatValue]];
     return str;
 }
 
 /// 获取当前时间
-+ (NSString *)getCurrentTimes{
++ (NSString *)qt_getCurrentTimes{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSDate *datenow = [NSDate date];
@@ -419,7 +419,7 @@
     return currentTimeString;
 }
 /// 获取当前日期
-+ (NSString *)getCurrentDate{
++ (NSString *)qt_getCurrentDate{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
     NSDate *datenow = [NSDate date];
@@ -429,7 +429,7 @@
 
 /// 以特定格式返回当前时间
 /// - Parameter dateFormat:时间格式 dateFormat 例如@"yyyy-MM-dd"
-+ (NSString *)getCurrentTimeWithTimeFormatterString:(NSString *)dateFormat{
++ (NSString *)qt_getCurrentTimeWithTimeFormatterString:(NSString *)dateFormat{
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     // ----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
     [formatter setDateFormat:dateFormat];
@@ -442,7 +442,7 @@
 }
 
 /// 以自身作为formatter格式返回当前时间
-- (NSString *)formatterGetCurrentDate {
+- (NSString *)qt_formatterGetCurrentDate {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:self];
     NSDate *datenow = [NSDate date];
