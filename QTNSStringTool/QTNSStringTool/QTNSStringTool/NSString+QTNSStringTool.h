@@ -74,6 +74,18 @@ NS_ASSUME_NONNULL_BEGIN
 /// 获取系统版本号
 + (NSString*)SystemVersion;
 
+/// 获取当前时间
++ (NSString *)getCurrentTimes;
+/// 获取当前日期
++ (NSString *)getCurrentDate;
+
+/// 以特定格式返回当前时间
+/// - Parameter dateFormat:时间格式 dateFormat 例如@"yyyy-MM-dd"
++ (NSString *)getCurrentTimeWithTimeFormatterString:(NSString *)dateFormat;
+
+/// 以自身作为formatter格式返回当前时间
+- (NSString *)formatterGetCurrentDate;
+
 @end
 
 NS_ASSUME_NONNULL_END
