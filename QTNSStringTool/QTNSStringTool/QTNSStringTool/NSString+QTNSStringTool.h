@@ -94,10 +94,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (UIColor *)qt_hexGetColor;
 
 /// 获取时间戳(秒)
-+ (NSString *)getTimeIntervalSince1970Second;
++ (NSString *)qt_getTimeIntervalSince1970Second;
 
 /// 获取时间戳(毫秒)
-+ (NSString *)getTimeIntervalSince1970SecondMillisecond;
++ (NSString *)qt_getTimeIntervalSince1970SecondMillisecond;
 
 @end
 

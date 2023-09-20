@@ -446,7 +446,6 @@
     return currentTimeString;
 }
 
-
 /// 根据hex字符串获取颜色,自身不符合hex标准时返回白色
 - (UIColor *)qt_hexGetColor {
     NSString *cString = [[self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
@@ -482,9 +481,8 @@
                            alpha:1.0f];
 }
 
-
 /// 获取时间戳(秒)
-+ (NSString *)getTimeIntervalSince1970Second{
++ (NSString *)qt_getTimeIntervalSince1970Second{
     
     NSDate *dat = [NSDate dateWithTimeIntervalSinceNow:0];
     
@@ -496,7 +494,7 @@
 }
 
 /// 获取时间戳(毫秒)
-+ (NSString *)getTimeIntervalSince1970SecondMillisecond{
++ (NSString *)qt_getTimeIntervalSince1970SecondMillisecond{
 
     NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
     
