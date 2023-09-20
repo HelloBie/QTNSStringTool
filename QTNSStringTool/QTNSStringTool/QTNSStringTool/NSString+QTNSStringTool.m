@@ -12,10 +12,6 @@
 
 @implementation NSString (QTNSStringTool)
 
-
-
-
-
 #pragma mark - 验证
 
 /// 判断是否包含中文
@@ -448,5 +444,67 @@
     NSDate *datenow = [NSDate date];
     NSString *currentTimeString = [formatter stringFromDate:datenow];
     return currentTimeString;
+}
+
+
+/// 根据hex字符串获取颜色,自身不符合hex标准时返回白色
+- (UIColor *)qt_hexGetColor {
+    NSString *cString = [[self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
+    
+    // String should be 6 or 8 characters
+    if ([cString length] < 6) return [UIColor whiteColor];
+    
+    // strip 0X if it appears
+    if ([cString hasPrefix:@"0X"]) cString = [cString substringFromIndex:2];
+    if ([cString hasPrefix:@"#"]) cString = [cString substringFromIndex:1];
+    if ([cString length] != 6) return [UIColor whiteColor];
+    // Separate into r, g, b substrings
+    NSRange range;
+    range.location = 0;
+    range.length = 2;
+    NSString *rString = [cString substringWithRange:range];
+    
+    range.location = 2;
+    NSString *gString = [cString substringWithRange:range];
+    
+    range.location = 4;
+    NSString *bString = [cString substringWithRange:range];
+    
+    // Scan values
+    unsigned int r, g, b;
+    [[NSScanner scannerWithString:rString] scanHexInt:&r];
+    [[NSScanner scannerWithString:gString] scanHexInt:&g];
+    [[NSScanner scannerWithString:bString] scanHexInt:&b];
+    
+    return [UIColor colorWithRed:((float) r / 255.0f)
+                           green:((float) g / 255.0f)
+                            blue:((float) b / 255.0f)
+                           alpha:1.0f];
+}
+
+
+/// 获取时间戳(秒)
++ (NSString *)getTimeIntervalSince1970Second{
+    
+    NSDate *dat = [NSDate dateWithTimeIntervalSinceNow:0];
+    
+    NSTimeInterval a = [dat timeIntervalSince1970];
+    
+    NSString *timeString = [NSString stringWithFormat:@"%0.f", a];//转为字符型
+    
+    return timeString;
+}
+
+/// 获取时间戳(毫秒)
++ (NSString *)getTimeIntervalSince1970SecondMillisecond{
+
+    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
+    
+    NSTimeInterval a = [date timeIntervalSince1970];
+    
+    NSString *timeString = [NSString stringWithFormat:@"%0.f", a * 1000];//转为字符型
+    
+    return timeString;
+
 }
 @end

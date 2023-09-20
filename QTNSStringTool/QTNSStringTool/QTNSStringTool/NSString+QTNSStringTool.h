@@ -7,6 +7,9 @@
 
 #import <Foundation/Foundation.h>
 
+@class UIColor;
+
+
 NS_ASSUME_NONNULL_BEGIN
 
 /// NSString 常用工具方法
@@ -86,6 +89,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 以自身作为formatter格式返回当前时间
 - (NSString *)qt_formatterGetCurrentDate;
+
+/// 根据hex字符串获取颜色,自身不符合hex标准时返回白色
+- (UIColor *)qt_hexGetColor;
+
+/// 获取时间戳(秒)
++ (NSString *)getTimeIntervalSince1970Second;
+
+/// 获取时间戳(毫秒)
++ (NSString *)getTimeIntervalSince1970SecondMillisecond;
 
 @end
 
