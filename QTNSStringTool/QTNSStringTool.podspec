@@ -12,7 +12,7 @@ Pod::Spec.new do |spec|
   spec.homepage     = "https://github.com/HelloBie/QTNSStringTool"
 
 
-
+  spec.ios.deployment_target = '9.0'
   spec.license      = "MIT"
 
   spec.author             = { "bieqiutian" => "1005903848@qq.com" }
