@@ -6,7 +6,6 @@
 //
 
 #import "ViewController.h"
-#import "NSString+QTNSStringTool.h"
 @interface ViewController ()
 
 @end

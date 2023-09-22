@@ -4,7 +4,7 @@ Pod::Spec.new do |spec|
 
 
   spec.name         = "QTNSStringTool"
-  spec.version      = "0.1"
+  spec.version      = "0.2"
   spec.summary      = "NSString 常用方法 "
 
   spec.description  = "QTQuickSetupUI"
