@@ -494,8 +494,7 @@
 }
 
 /// 获取时间戳(毫秒)
-+ (NSString *)qt_
-getTimeIntervalSince1970SecondMillisecond{
++ (NSString *)qt_getTimeIntervalSince1970SecondMillisecond{
 
     NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
     
