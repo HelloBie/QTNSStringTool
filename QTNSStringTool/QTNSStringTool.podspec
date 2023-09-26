@@ -4,7 +4,7 @@ Pod::Spec.new do |spec|
 
 
   spec.name         = "QTNSStringTool"
-  spec.version      = "0.3"
+  spec.version      = "0.4"
   spec.summary      = "NSString 常用方法 "
 
   spec.description  = "QTQuickSetupUI"
@@ -20,7 +20,7 @@ Pod::Spec.new do |spec|
   spec.source       = { :git => "https://github.com/HelloBie/QTNSStringTool.git", :tag => "#{spec.version}" }
 
 
-  spec.source_files  = "QTNSStringTool/QTNSStringTool/*.{h,m}"
+  spec.source_files  = "QTNSStringTool/QTNSStringTool/QTNSStringTool/*.{h,m}"
   
   spec.frameworks = "Foundation", "UIKit"
 
