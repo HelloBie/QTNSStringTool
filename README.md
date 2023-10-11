@@ -1,7 +1,6 @@
 # QTNSStringTool
 NSNSString扩展,封装常用方法
 
-方法列表 
 #pragma mark - 验证
 
 /// 判断是否包含中文
@@ -85,5 +84,20 @@ NSNSString扩展,封装常用方法
 
 /// 获取时间戳(毫秒)
 + (NSString *)qt_getTimeIntervalSince1970SecondMillisecond;
+
+/// 获取沙盒主目录路径
++ (NSString *)qt_getSanboxHomePath;
+
+/// 获取Documents沙盒路径
++ (NSString *)qt_getSanboxDocumentsPath;
+
+/// 获取Library沙盒路径
++ (NSString *)qt_getSanboxLibraryPath;
+
+/// 获取Caches沙盒路径
++ (NSString *)qt_getSanboxCachesPath;
+
+/// 获取tmp沙盒路径
++ (NSString *)qt_getSanboxcTmpPath;
 
 支持cocoapods : pod 'QTNSStringTool'
