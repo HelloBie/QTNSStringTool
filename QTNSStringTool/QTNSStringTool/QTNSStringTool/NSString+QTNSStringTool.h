@@ -99,6 +99,20 @@ NS_ASSUME_NONNULL_BEGIN
 /// 获取时间戳(毫秒)
 + (NSString *)qt_getTimeIntervalSince1970SecondMillisecond;
 
+/// 获取沙盒主目录路径
++ (NSString *)qt_getSanboxHomePath;
+
+/// 获取Documents沙盒路径
++ (NSString *)qt_getSanboxDocumentsPath;
+
+/// 获取Library沙盒路径
++ (NSString *)qt_getSanboxLibraryPath;
+
+/// 获取Caches沙盒路径
++ (NSString *)qt_getSanboxCachesPath;
+
+/// 获取tmp沙盒路径
++ (NSString *)qt_getSanboxcTmpPath;
 @end
 
 NS_ASSUME_NONNULL_END

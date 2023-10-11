@@ -503,6 +503,31 @@
     NSString *timeString = [NSString stringWithFormat:@"%0.f", a * 1000];//转为字符型
     
     return timeString;
+}
 
+/// 获取沙盒主目录路径
++ (NSString *)qt_getSanboxHomePath {
+    // 获取沙盒主目录路径
+    return NSHomeDirectory();
+}
+
+/// 获取Documents沙盒路径
++ (NSString *)qt_getSanboxDocumentsPath{
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+}
+
+/// 获取Library沙盒路径
++ (NSString *)qt_getSanboxLibraryPath {
+    return [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES) lastObject];
+}
+
+/// 获取Caches沙盒路径
++ (NSString *)qt_getSanboxCachesPath {
+    return [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject];
+}
+
+/// 获取tmp沙盒路径
++ (NSString *)qt_getSanboxcTmpPath {
+    return NSTemporaryDirectory();;
 }
 @end
