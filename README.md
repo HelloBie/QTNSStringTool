@@ -1,6 +1,6 @@
 # QTNSStringTool
 NSNSString扩展,封装常用方法
-
+支持cocoapods : pod 'QTNSStringTool'
 #pragma mark - 验证
 
 /// 判断是否包含中文
@@ -100,4 +100,4 @@ NSNSString扩展,封装常用方法
 /// 获取tmp沙盒路径
 + (NSString *)qt_getSanboxcTmpPath;
 
-支持cocoapods : pod 'QTNSStringTool'
+
