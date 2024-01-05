@@ -104,13 +104,13 @@ json字符串转化字典或数组<br>
 获取Documents沙盒路径
 `+ (NSString *)qt_getSanboxDocumentsPath;`
 
-获取Library沙盒路径
+获取Library沙盒路径<br>
 `+ (NSString *)qt_getSanboxLibraryPath;`
 
-获取Caches沙盒路径
+获取Caches沙盒路径<br>
 `+ (NSString *)qt_getSanboxCachesPath;`
 
-获取tmp沙盒路径
+获取tmp沙盒路径<br>
 `+ (NSString *)qt_getSanboxcTmpPath;`
 
 
