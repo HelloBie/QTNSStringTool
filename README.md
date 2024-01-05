@@ -7,16 +7,16 @@ NSNSString扩展,封装常用方法
 ## pragma mark - 验证  
 
 
-判断是否包含中文  
+判断是否包含中文<br>
 `- (BOOL)qt_containChinese;`
 
-简单判断是否是手机号  
+简单判断是否是手机号<br>
 `- (BOOL)qt_isPhoneNumber;`
 
-判断是否是身份证号  
+判断是否是身份证号<br>
 `- (BOOL)qt_isIDCardNumber;`
 
-判断是否是电子邮箱  
+判断是否是电子邮箱<br>
 `- (BOOL)qt_isEmailAddress;`
 
 判断字符串是否为空,长度为0或者对象类型不为NSString及其子类时返回YES  
@@ -45,60 +45,60 @@ NSNSString扩展,封装常用方法
 
 ## pragma mark - 数据处理<br>
 
-数字金额转化为大写汉字
+数字金额转化为大写汉字<br>
 `- (NSString *)qt_convertAmount;`
 
 数字类型字符串转化为保留若干位小数<br>
 - Parameter position: 需要保留的小数位<br>
 `- (NSString *)qt_notRoundingAfterPoint:(NSInteger)position;`
 
-json字符串转化字典或数组
+json字符串转化字典或数组<br>
 `- (id)qt_stringToJSONObject;`
 
 字典或数组转化成json字符串<br>
 - Parameter jsonObject: 需要转化的字典或者数组<br>
 `+ (NSString *)qt_jsonObjectToString:(id)jsonObject;`
 
-生成 32位小写 MD5字符串
+生成 32位小写 MD5字符串<br>
 `- (NSString *)qt_MD5ForLower32Bate;`
 
-生成 32位大写 MD5字符串
+生成 32位大写 MD5字符串<br>
 `- (NSString *)qt_MD5ForUpper32Bate;`
 
-生成 16位 大写 MD5字符串
+生成 16位 大写 MD5字符串<br>
 `- (NSString *)qt_MD5ForUpper16Bate;`
 
-生成 16位 小写 MD5字符串
+生成 16位 小写 MD5字符串<br>
 `- (NSString *)qt_MD5ForLower16Bate;`
 
 ## pragma mark - 快速数据获取
 
-获取系统版本号
+获取系统版本号<br>
 `+ (NSString*)qt_systemVersion;`
 
-获取当前时间
+获取当前时间<br>
 `+ (NSString *)qt_getCurrentTimes;`
 
-获取当前日期
+获取当前日期<br>
 `+ (NSString *)qt_getCurrentDate;`
 
 以特定格式返回当前时间<br>
 - Parameter dateFormat:时间格式 dateFormat 例如@"yyyy-MM-dd"<br>
 `+ (NSString *)qt_getCurrentTimeWithTimeFormatterString:(NSString *)dateFormat;`
 
-以自身作为formatter格式返回当前时间
+以自身作为formatter格式返回当前时间<br>
 `- (NSString *)qt_formatterGetCurrentDate;`
 
-根据hex字符串获取颜色,自身不符合hex标准时返回白色
+根据hex字符串获取颜色,自身不符合hex标准时返回白色<br>
 `- (UIColor *)qt_hexGetColor;`
 
-获取时间戳(秒)
+获取时间戳(秒)<br>
 `+ (NSString *)qt_getTimeIntervalSince1970Second;`
 
-获取时间戳(毫秒)
+获取时间戳(毫秒)<br>
 `+ (NSString *)qt_getTimeIntervalSince1970SecondMillisecond;`
 
-获取沙盒主目录路径
+获取沙盒主目录路径<br>
 `+ (NSString *)qt_getSanboxHomePath;`
 
 获取Documents沙盒路径
