@@ -7,8 +7,8 @@ NSNSString扩展,封装常用方法
 ##pragma mark - 验证  
 
 
-/// 判断是否包含中文
-- (BOOL)qt_containChinese;
+判断是否包含中文
+'- (BOOL)qt_containChinese;'
 
 /// 简单判断是否是手机号
 - (BOOL)qt_isPhoneNumber;
