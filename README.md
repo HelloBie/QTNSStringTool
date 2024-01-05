@@ -23,7 +23,7 @@ NSNSString扩展,封装常用方法
 `+ (BOOL)qt_stringIsNull:(NSString *)string;`
 
 否为纯数字<br>
-- Parameter allowPoint: YES:判断条件包含小数(12.34返回值为YES),  NO:不能包含小数·(12.34返回NO)  
+- Parameter allowPoint: YES:判断条件包含小数(12.34返回值为YES),  NO:不能包含小数·(12.34返回NO)    
 `- (BOOL)qt_isNumberStringWithAllowPoint:(BOOL)allowPoint;`
 
 判断字符串是否为固定位数的纯数字(如 4位纯数字,11为纯数字)<br>
