@@ -17,11 +17,11 @@
 
 - (void)setUp {
     
-  BOOL b1 =  [@"12" isNumberStringWithAllowPoint:NO];
-    BOOL b2 =  [@"12.34" isNumberStringWithAllowPoint:YES];
-    BOOL b22 =  [@"12.34" isNumberStringWithAllowPoint:NO];
-    BOOL b3 =  [@"12" iSNumberStringWithLength:2];
-      BOOL b4 =  [@"12" iSNumberStringWithLength:3];
+  BOOL b1 =  [@"12" qt_isNumberStringWithAllowPoint:NO];
+    BOOL b2 =  [@"12.34" qt_isNumberStringWithAllowPoint:YES];
+    BOOL b22 =  [@"12.34" qt_isNumberStringWithAllowPoint:NO];
+    BOOL b3 =  [@"12" qt_isNumberStringWithLength:2];
+      BOOL b4 =  [@"12" qt_isNumberStringWithLength:3];
     
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }

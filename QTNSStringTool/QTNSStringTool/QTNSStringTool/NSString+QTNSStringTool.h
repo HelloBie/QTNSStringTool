@@ -34,12 +34,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// /否为纯数字
 /// - Parameter allowPoint: YES:判断条件包含小数(12.34返回值为YES),  NO:不能包含小数·(12.34返回NO)
-- (BOOL)isNumberStringWithAllowPoint:(BOOL)allowPoint;
+- (BOOL)qt_isNumberStringWithAllowPoint:(BOOL)allowPoint;
 
 /// 判断字符串是否为固定位数的纯数字(如 4位纯数字,11为纯数字)
 /// - Parameters:
 ///   - length: 位数
-- (BOOL)iSNumberStringWithLength:(NSUInteger)length;
+- (BOOL)qt_isNumberStringWithLength:(NSUInteger)length;
 
 
 #pragma mark - UI
