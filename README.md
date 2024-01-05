@@ -4,6 +4,7 @@ NSNSString扩展,封装常用方法
 
 **支持cocoapods : pod 'QTNSStringTool'**  
 
+***
 ## pragma mark - 验证  
 
 
@@ -30,7 +31,7 @@ NSNSString扩展,封装常用方法
   Parameters:<br>
       length: 位数<br>
 `- (BOOL)qt_isNumberStringWithLength:(NSUInteger)length;`
-
+***
 ## pragma mark - UI
 
 - 计算文本高度<br>
@@ -42,7 +43,7 @@ NSNSString扩展,封装常用方法
                      `withLineSpacing:(CGFloat)lineSpacing`  
                             `withFont:(CGFloat)font;`
 
-
+***
 ## pragma mark - 数据处理<br>
 
 - 数字金额转化为大写汉字<br>
@@ -71,6 +72,7 @@ NSNSString扩展,封装常用方法
 - 生成 16位 小写 MD5字符串<br>
 `- (NSString *)qt_MD5ForLower16Bate;`
 
+***
 ## pragma mark - 快速数据获取
 
 - 获取系统版本号<br>
