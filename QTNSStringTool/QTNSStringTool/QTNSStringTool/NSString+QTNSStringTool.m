@@ -36,7 +36,7 @@
 /// 判断是否是身份证号
 - (BOOL)qt_isIDCardNumber {
     NSString *value = [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-
+    
     if (!self) {
         return NO;
     }else {
@@ -121,6 +121,7 @@
 }
 
 /// 判断字符串是否为空,长度为0或者对象类型不为字符串时返回yes
+/// - Parameter string: <#string description#>
 + (BOOL)qt_stringIsNull:(NSString *)string {
     
     if (![string isKindOfClass:[NSString class]]) {
@@ -134,6 +135,49 @@
     return YES;
 }
 
+
+
+/// /否为纯数字
+/// - Parameter allowPoint: YES:判断条件包含小数(12.34返回值为YES),  NO:不能包含小数·(12.34返回NO)
+- (BOOL)isNumberStringWithAllowPoint:(BOOL)allowPoint
+{
+    
+    if(allowPoint){
+        NSString * checkedNumString = [self stringByTrimmingCharactersInSet:[NSCharacterSet decimalDigitCharacterSet]];
+        if(checkedNumString.length > 0) {
+            if([checkedNumString isEqualToString:@"."] && self.length >= 3){
+                if (![[self substringFromIndex:self.length - 1] isEqualToString:@"."] && ![[self substringToIndex:1] isEqualToString:@"."]) {
+                    return YES;
+                }
+            }
+            return NO;
+        }
+        return YES;
+    }else {
+        if (self.length == 0) {
+            return NO;
+        }
+        NSString *regex = @"[0-9]*";
+        NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
+        if ([pred evaluateWithObject:self]) {
+            return YES;
+        }
+        return NO;
+    }
+    
+    
+}
+
+/// 判断字符串是否为固定位数的纯数字(如 4位纯数字,11为纯数字)
+/// - Parameters:
+///   - length: 位数
+- (BOOL)iSNumberStringWithLength:(NSUInteger)length
+{
+    NSString *number = [NSString stringWithFormat:@"^\\d{%lu}$", (unsigned long)length];
+    NSPredicate *numberPre = [NSPredicate predicateWithFormat:@"SELF     MATCHES %@",number];
+    return [numberPre evaluateWithObject:self];
+}
+
 #pragma mark - UI
 
 /// 计算文本高度
@@ -142,8 +186,8 @@
 ///   - lineSpacing: 行间距(没有行间距就传0)
 ///   - font: 文本字体大小
 - (CGFloat)qt_getTextHeightWithWidth:(CGFloat)width
-                  withLineSpacing:(CGFloat)lineSpacing
-                         withFont:(CGFloat)font {
+                     withLineSpacing:(CGFloat)lineSpacing
+                            withFont:(CGFloat)font {
     if (self.length == 0) {
         return 0;
     }
@@ -173,7 +217,7 @@
     {
         return @"零元整";
     }
-
+    
     //首先转化成标准格式        “200.23”
     NSString *doubleStr = nil;
     doubleStr = [self qt_notRoundingAfterPoint:2];
@@ -187,31 +231,31 @@
     NSArray *carryArr2=@[@"角",@"分"];
     //数字
     NSArray *numArr=@[@"零", @"壹", @"贰", @"叁", @"肆", @"伍", @"陆", @"柒", @"捌", @"玖"];
-
+    
     NSArray *temarr = [tempStr componentsSeparatedByString:@"."];
     //小数点前的数值字符串
     NSString *firstStr=[NSString stringWithFormat:@"%@",temarr[0]];
     //小数点后的数值字符串
     NSString *secondStr=[NSString stringWithFormat:@"%@",temarr[1]];
-
+    
     //是否拼接了“零”，做标记
     bool zero=NO;
     //拼接数据的可变字符串
     NSMutableString *endStr= [[NSMutableString alloc] init];
-
+    
     /**
      *  首先遍历firstStr，从最高位往个位遍历    高位----->个位
      */
-
+    
     for(int i=(int)firstStr.length;i>0;i--)
     {
         //取最高位数
         NSInteger MyData=[[firstStr substringWithRange:NSMakeRange(firstStr.length-i, 1)]
                           integerValue];
-
+        
         if ([numArr[MyData] isEqualToString:@"零"])
         {
-
+            
             if ([carryArr1[i-1] isEqualToString:@"万"]||[carryArr1[i-1] isEqualToString:@"亿"]||[carryArr1[i-1] isEqualToString:@"元"]||[carryArr1[i-1] isEqualToString:@"兆"])
             {
                 //去除有“零万”
@@ -226,17 +270,17 @@
                     [endStr appendString:carryArr1[i-1]];
                     zero=NO;
                 }
-
+                
                 //去除有“亿万”、"兆万"的情况
                 if ([carryArr1[i-1] isEqualToString:@"万"]) {
                     if ([[endStr substringWithRange:NSMakeRange(endStr.length-2, 1)] isEqualToString:@"亿"]) {
                         endStr =[NSMutableString stringWithFormat:@"%@",[endStr substringToIndex:endStr.length-1]];
                     }
-
+                    
                     if ([[endStr substringWithRange:NSMakeRange(endStr.length-2, 1)] isEqualToString:@"兆"]) {
                         endStr =[NSMutableString stringWithFormat:@"%@",[endStr substringToIndex:endStr.length-1]];
                     }
-
+                    
                 }
                 //去除“兆亿”
                 if ([carryArr1[i-1] isEqualToString:@"亿"]) {
@@ -244,16 +288,16 @@
                         endStr =[NSMutableString stringWithFormat:@"%@",[endStr substringToIndex:endStr.length-1]];
                     }
                 }
-
-
+                
+                
             }else{
                 if (!zero) {
                     [endStr appendString:numArr[MyData]];
                     zero=YES;
                 }
-
+                
             }
-
+            
         }else{
             //拼接数字
             [endStr appendString:numArr[MyData]];
@@ -263,36 +307,36 @@
             zero=NO;
         }
     }
-
+    
     /**
      *  再遍历secondStr    角位----->分位
      */
-
+    
     if ([secondStr isEqualToString:@"00"]) {
         [endStr appendString:@"整"];
     }else{
-       //如果最后一位位0就把它去掉
+        //如果最后一位位0就把它去掉
         if (secondStr.length > 1 && [secondStr hasSuffix:@"0"])
         {
             secondStr = [secondStr substringToIndex:(secondStr.length - 1)];
         }
-
+        
         for(int i=(int)secondStr.length;i>0;i--)
         {
             //取最高位数
             NSInteger MyData=[[secondStr substringWithRange:NSMakeRange(secondStr.length-i, 1)] integerValue];
-
+            
             [endStr appendString:numArr[MyData]];
             [endStr appendString:carryArr2[secondStr.length-i]];
         }
     }
-
+    
     //add song
     if ([endStr hasPrefix:@"元"])
     {
         return  (NSString *)[endStr substringFromIndex:1];
     }
-
+    
     return endStr;
 }
 
@@ -304,7 +348,7 @@
     NSDecimalNumberHandler* roundingBehavior = [NSDecimalNumberHandler decimalNumberHandlerWithRoundingMode:NSRoundBankers scale:position raiseOnExactness:NO raiseOnOverflow:NO raiseOnUnderflow:NO raiseOnDivideByZero:NO];
     NSDecimalNumber *roundedOunces;
     roundedOunces = [price decimalNumberByRoundingAccordingToBehavior:roundingBehavior];
-
+    
     return [NSString stringWithFormat:@"%@",roundedOunces];
 }
 
@@ -495,7 +539,7 @@
 
 /// 获取时间戳(毫秒)
 + (NSString *)qt_getTimeIntervalSince1970SecondMillisecond{
-
+    
     NSDate *date = [NSDate dateWithTimeIntervalSinceNow:0];
     
     NSTimeInterval a = [date timeIntervalSince1970];

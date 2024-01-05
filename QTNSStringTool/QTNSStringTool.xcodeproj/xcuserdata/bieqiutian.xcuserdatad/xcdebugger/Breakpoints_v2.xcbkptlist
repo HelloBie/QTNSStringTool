@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "25332E3F-EDEF-4029-BF1A-D2C78394793A"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DA7AC555-13A3-4ECA-9327-CDE1522EE3B0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "QTNSStringToolTests/QTNSStringToolTests.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "-setUp"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DA7AC555-13A3-4ECA-9327-CDE1522EE3B0 - 1d0d5df14bbf0fc7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[QTNSStringToolTests setUp]"
+                  moduleName = "QTNSStringToolTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bieqiutian/Desktop/github/QTNSStringTool/QTNSStringTool/QTNSStringToolTests/QTNSStringToolTests.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "DA7AC555-13A3-4ECA-9327-CDE1522EE3B0 - 1d0d5df14bbf0fc7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[QTNSStringToolTests setUp]"
+                  moduleName = "QTNSStringToolTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bieqiutian/Desktop/github/QTNSStringTool/QTNSStringTool/QTNSStringToolTests/QTNSStringToolTests.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "148">
+               </Location>
+               <Location
+                  uuid = "DA7AC555-13A3-4ECA-9327-CDE1522EE3B0 - 1d0d5df14bbf0c26"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[QTNSStringToolTests setUp]"
+                  moduleName = "QTNSStringToolTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bieqiutian/Desktop/github/QTNSStringTool/QTNSStringTool/QTNSStringToolTests/QTNSStringToolTests.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "208">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

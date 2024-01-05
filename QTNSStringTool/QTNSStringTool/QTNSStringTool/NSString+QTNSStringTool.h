@@ -32,6 +32,16 @@ NS_ASSUME_NONNULL_BEGIN
 /// 判断字符串是否为空,长度为0或者对象类型不为NSString及其子类时返回YES
 + (BOOL)qt_stringIsNull:(NSString *)string;
 
+/// /否为纯数字
+/// - Parameter allowPoint: YES:判断条件包含小数(12.34返回值为YES),  NO:不能包含小数·(12.34返回NO)
+- (BOOL)isNumberStringWithAllowPoint:(BOOL)allowPoint;
+
+/// 判断字符串是否为固定位数的纯数字(如 4位纯数字,11为纯数字)
+/// - Parameters:
+///   - length: 位数
+- (BOOL)iSNumberStringWithLength:(NSUInteger)length;
+
+
 #pragma mark - UI
 
 /// 计算文本高度
